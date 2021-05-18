@@ -219,9 +219,10 @@ void function SURVIVAL_Loot_All_InitShared()
 		{
 			case eLootType.MAINWEAPON:
 				RegisterWeaponForUse( data.baseWeapon )
-				data.model = $"mdl/weapons/vinson/w_vinson.rmdl" // GetWeaponInfoFileKeyFieldAsset_Global( data.baseWeapon, "playermodel" )
-				if ( false && GetWeaponInfoFileKeyField_Global( data.baseWeapon, "ammo_pool_type" ) != null )
-					data.ammoType = "highcal"//GetWeaponInfoFileKeyField_GlobalString( data.baseWeapon, "ammo_pool_type" )
+				//PrecacheWeapon( data.baseWeapon )
+				data.model = GetWeaponInfoFileKeyFieldAsset_Global( data.baseWeapon, "playermodel" )
+				if ( GetWeaponInfoFileKeyField_Global( data.baseWeapon, "ammo_pool_type" ) != null )
+					data.ammoType = GetWeaponInfoFileKeyField_GlobalString( data.baseWeapon, "ammo_pool_type" )
 				else
 					data.ammoType = "highcal"
 

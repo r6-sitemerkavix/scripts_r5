@@ -168,13 +168,16 @@ global SvGlobals svGlobal
 void function CodeCallback_MapSpawn() // original script entry point
 {
 	ShWeapons_LevelInit()
-	seterrorhandler(void function() {})
+	//seterrorhandler(void function() {})
 	ScriptCompilerTest()
 	LoadDiamond()
 
 	_cc = CreateEntity( "point_clientcommand" )
 	_sc = CreateEntity( "point_servercommand" )
 	PrecacheEntity( "env_entity_dissolver" )
+
+	FlagInit("EntitiesDidLoad")
+	svGlobal.levelEnt = GetEnt( "worldspawn" )
 
 	LevelVarInit()
 
